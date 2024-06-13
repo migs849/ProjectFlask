@@ -1,0 +1,57 @@
+{% extends 'base.html' %}  
+{% block content %}
+
+<div class = "container">
+    <div class="mt-4 ">
+
+        {% include 'nave.html' %}
+
+        <hr>
+
+        <div class = 'mt-4'> 
+            {% if current_user.is_authenticated %}
+             
+            
+            {% else %}
+
+            <form action="" method="post" class="row mt-4 p-4 round border shadow">
+                <div class="text-center">
+                    <h3>Faça seu login</h3>
+                    
+                </div>
+
+                {{form.csrf_token}}
+            
+            {{form.email.label()}}
+            {{form.email(class="form-control")}}
+
+            {{form.senha.label()}}
+            {{form.senha(class="form-control")}}
+        
+            {{form.btnSubmit(class="btn btn-primary col-12 mt-4")}}
+
+            <div class="col-12 mt-4"> Não possui cadastro? <a href="{{url_for('cadastro')}}">Clique aqui e faça o seu Cadastro</a></div>
+
+            </form>
+
+            {% endif %}
+        </div>
+    
+        
+    </div>
+    
+    <hr>
+    <div class="p-4 bg-primary text-light rounded-pill">
+        <div class="mt-4 text-center">
+            
+            <img  src="{{url_for('static', filename='img/jax3.png')}}">
+            
+        </div>
+      </div>
+      <hr>
+        
+
+    
+</div>
+
+{% endblock %}

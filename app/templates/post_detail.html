@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+
+{% include 'nave.html' %}
+
+{{id}}
+
+
+<div class="row mt-4">
+    <div class ="col-md-6 mt-4">
+
+        <img src="{{url_for('static', filename='data/post/{}'.format(post.imagem))}}" style="max-width: 300px;">
+        <hr>
+        Post:
+        <textarea type="text" rows="10" class="form-control bg-primary text-white" readonly>{{obj.mensagem}}</textarea>
+    </div>
+</div>
+    <div class="text-secondary"> <h5>Post de usuário: << {{obj.user.nome}} >></h5> </div>
+
+
+
+    <div class="row mt-4">
+        <center><img  src="{{url_for('static', filename='img/jax4.png.png')}}">
+        <h3>Escrever Comentário</h3>
+    </div>
+    <form action="" method="post" class="row mt-4 p-4 round border shadow">
+        {{form.csrf_token}}
+
+    {{form.comentario.label()}}
+    {{form.comentario(class="form-control")}}
+
+    {{form.btnSubmit2(class="btn btn-primary col-12 mt-3")}}
+    
+    </form>
+
+    <div class="row mt-4">
+        
+        <div class ="col-md-6 mt-4">
+            Comentários:
+
+        </div>
+            
+            {% for comentario in comentario %}
+            <hr>
+                (null name)
+            <textarea type="text" rows="2" class="form-control bg-secondary text-white" readonly>{{ comentario.comentario }}</textarea>
+
+            
+            {% endfor %}
+        </div>
+        
+    </div>
+    <hr class = "mt-4 p-4">
+
+</div>
+
+{% endblock %}

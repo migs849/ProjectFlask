@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+
+{% include 'nave.html' %}
+
+{{id}}
+
+<div class="row mt-4">
+    <div class ="col-md-6 mt-4">
+        Nome:
+        <input type="text" value="{{obj.nome}}" class = "form-control bg-secondary text-white" readonly>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class ="col-md-6 mt-4">
+        Idade:
+        <input type="text" value="{{obj.idade}}" class = "form-control bg-secondary text-white" readonly>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class ="col-md-6 mt-4">
+        matricula:
+        <input type="text" value="{{obj.matricula}}" class = "form-control bg-secondary text-white" readonly>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class ="col-md-6 mt-4">
+        Mensagem / matricula:
+        <textarea type="text" rows="10" class="form-control bg-secondary text-white" readonly>{{obj.descricao}}</textarea>
+    </div>
+</div>
+
+
+</div>
+
+{% endblock %}
